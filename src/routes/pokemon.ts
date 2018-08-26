@@ -7,6 +7,17 @@ export class Pokemons {
         app.route('/pokemons')
             .get((req: Request, res: Response) => {
                 res.status(200).send(pokemons);
-            })
+            });
+        app.route('/pokemons/:id')
+            .get((req: Request, res: Response) => {
+                 let id = req.params.id;
+                 res.status(200).send(pokemons[id]);
+            });
+        app.route('/pokemons')
+            .post((req:Request, res: Response) => {
+                let name = req.body.name;
+                let attack = req.body.attack;
+                // add logic to store in the db
+            });
     }
 }
